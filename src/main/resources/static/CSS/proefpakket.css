@@ -1,0 +1,28 @@
+body {
+	background-color: #FFFCE6;
+	font-family: sans-serif;
+}
+
+h1 {
+	color: brown;
+}
+
+.fullwidth {
+	width: 100%;
+}
+
+blockquote {
+	margin-left: 0;
+	font-style: italic;
+}
+#alfabet {
+	list-style-type: none;
+	padding-left: 0;
+}
+#alfabet li {
+	display:inline;
+}
+dd {
+	margin-left: 0;
+	font-weight: bold;
+}

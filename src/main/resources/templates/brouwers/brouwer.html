@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang='nl' xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title=${brouwer.naam})"></head>
+<body>
+	<h1 th:text='${brouwer.naam}'></h1>
+	<dl>
+		<dt>Straat</dt>
+		<dd th:text='${brouwer.adres.straat}'></dd>
+		<dt>Huisnummer</dt>
+		<dd th:text='${brouwer.adres.huisNr}'></dd>
+		<dt>Postcode</dt>
+		<dd th:text='${brouwer.adres.gemeente.postcode}'></dd>
+		<dt>Gemeente</dt>
+		<dd th:text='${brouwer.adres.gemeente.naam}'></dd>
+		<dt>Ondernemingsnummer</dt>
+		<dd th:text='${brouwer.ondernemingsNr}'></dd>
+	
+	</dl>
+</body>
+</html>
