@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang='nl' xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace='fragments::head(title=|Ondernemingsnummer ${brouwer.naam}|)'></head>
+<body>
+	<h1 th:text='|OndernemingsNr ${brouwer.naam}|'></h1>
+	<form method='post'
+		th:action='@{/brouwers/{id}/ondernemingsnr(id=${brouwer.id})}' th:object='${ondernemingsNrForm}'>
+		<label>Ondernemingsnummer: <span
+			th:if="${#fields.hasErrors('ondernemingsNr')}"
+			th:errors='*{ondernemingsNr}'></span> <input type='number'
+			th:field='*{ondernemingsNr}' required autofocus>
+		</label> <input type='submit' value='Bewaren'>
+	</form>
+</body>
+</html>

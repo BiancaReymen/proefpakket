@@ -22,4 +22,9 @@ public class DefaultBrouwerService implements BrouwerService{
 		return brouwerRepository
 				.findByNaamStartingWithOrderByNaam(beginNaam);
 	}
+	@Override
+	@Transactional(readOnly = false, isolation = Isolation.READ_COMMITTED)
+	public void update(Brouwer brouwer) {
+		brouwerRepository.save(brouwer);
+	}
 }

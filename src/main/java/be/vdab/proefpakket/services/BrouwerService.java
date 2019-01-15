@@ -6,4 +6,5 @@ import be.vdab.proefpakket.entities.Brouwer;
 
 public interface BrouwerService {
 	List<Brouwer> findByNaamStartingWithOrderByNaam(String beginNaam);
+	void update(Brouwer brouwer);
 }

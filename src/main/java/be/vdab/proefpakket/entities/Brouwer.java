@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import be.vdab.proefpakket.constraints.OndernemingsNr;
 import be.vdab.proefpakket.valueobjects.Adres;
 
 @Entity
@@ -22,6 +23,7 @@ public class Brouwer implements Serializable {
 	private String naam;
 	@Embedded
 	private Adres adres;
+	@OndernemingsNr
 	private Long ondernemingsNr;
 	
 	public long getId() {
@@ -36,6 +38,10 @@ public class Brouwer implements Serializable {
 	public Long getOndernemingsNr() {
 		return ondernemingsNr;
 	}
+	public void setOndernemingsNr(Long ondernemingsNr) {
+		this.ondernemingsNr = ondernemingsNr;
+	}
+	
 	
 	
 }
