@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang='nl' xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title=|${plaats}: ${temperatuur}&deg;|)"></head>
+<body>
+	<h1 th:if='${temperatuur != null}' th:text='|Het is ${temperatuur}&deg; in ${plaats}.|'></h1>
+	<div class='fout' th:if='${fout == null}' th:text='${fout}'></div>
+</body>
+</html>
