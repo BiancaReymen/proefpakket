@@ -5,15 +5,18 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import be.vdab.proefpakket.entities.Bestelling;
+import be.vdab.proefpakket.mail.MailSender;
 import be.vdab.proefpakket.repositories.BestellingRepository;
 
 @Service
 @Transactional(readOnly = true, isolation=Isolation.READ_COMMITTED)
 public class DefaultBestellingService implements BestellingService {
 	private final BestellingRepository bestellingRepository;
+	private final MailSender mailSender;
 	
-	DefaultBestellingService(BestellingRepository bestellingRepository) {
+	DefaultBestellingService(BestellingRepository bestellingRepository, MailSender mailSender) {
 		this.bestellingRepository = bestellingRepository;
+		this.mailSender = mailSender;
 	}
 	
 	
@@ -21,7 +24,7 @@ public class DefaultBestellingService implements BestellingService {
 	@Transactional(readOnly = false, isolation=Isolation.READ_COMMITTED)
 	public void create(Bestelling bestelling) {
 		bestellingRepository.save(bestelling);
+		mailSender.proefpakket(bestelling.getEmailAdres(), bestelling.getBrouwer().getNaam());
 		
 	}
-
 }
